@@ -15,3 +15,4 @@ Your actual version on libcrypto may be different, in this case adjust path in t
 
 You will need to put dcmi in /etc/modules to autoload it
 
+    echo dcmi | sudo tee -a /etc/modules
