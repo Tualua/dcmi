@@ -1,0 +1,41 @@
+/+---------------------------------------------------------------------------
+//
+//  Copyright (C) Intel Corporation, 2010.
+//
+//  File:       README 
+//
+//  Contents:   a short description for developers
+//
+//----------------------------------------------------------------------------
+
+Intel(R) Data Center Host Interface (IDC-HI) Linux Driver
+===========================
+
+Intel(R) Data Center Host Interface (IDC-HI) Linux Driver allows applications to access
+the Intel(R) Active Management Technology (Intel(R) AMT) FW via host
+interface (as opposed to a network interface).
+
+The Intel(R) Data Center Host Interface (IDC-HI) Linux Driver is meant to be used by the
+Local Manageability Service. When the Intel AMT machine is in Legacy Mode,
+the Intel(R) Data Center Host Interface (IDC-HI) Linux driver functions as the KCS driver
+did for Intel AMT Release 1.0.
+
+Messages from the Intel(R) Data Center Host Interface (IDC-HI) Linux driver will be sent
+to the system's log (i.e. /var/log/messages).
+
+Building and installing the Intel(R) Data Center Host Interface (IDC-HI) Linux driver:
+-----------------------------
+In order to build and install the Intel(R) Data Center Host Interface (IDC-HI) Linux driver,
+call "make install".
+Call "make uninstall" to uninstall and remove theIntel(R) Data Center Host Interface (IDC-HI) driver.
+In order to load and use the driver call "modprobe dcmi" or "insmod dcmi.ko".
+
+The Intel(R) Data Center Host Interface (IDC-HI) driver may also be built and
+installed manually, by first calling "make", then "insmod dcmi.ko".
+Remove by calling "rmmod dcmi.ko".
+
+Accessing The FW Via Intel(R) Data Center Host Interface (IDC-HI) driver:
+-----------------------------
+Once the Intel(R) Data Center Host Interface (IDC-HI) driver is running, an
+application can open a file to it connecting to an application on the firmware
+side, and send and receive DCMI messages to that application.

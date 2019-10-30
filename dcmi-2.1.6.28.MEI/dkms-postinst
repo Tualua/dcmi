@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+modprobe -r ipmi_devintf
+modprobe -r ipmi_msghandler
+modprobe -r ipmi_si
+modprobe dcmi
