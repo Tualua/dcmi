@@ -7,6 +7,7 @@ Tested on Quanta Windmill with Ubuntu 18.04.3/16.04.6 with kernel 4.18.20
 
 # How to install
 
+    sudo apt install build-essential flex bison libncurses5
     sudo make install
     sudo modprobe dcmi
     sudo ln -s /usr/lib/x86_64-linux-gnu/libcrypto.so.1.1 /usr/lib/x86_64-linux-gnu/libcrypto.so.6
