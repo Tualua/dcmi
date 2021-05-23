@@ -77,7 +77,7 @@ static int dcmi_transport_devicefile_exists(DCMI_TRANSPORT *trans)
 
 	printk(KERN_INFO "dcmi: trying %s...\n", trans->device_file_name);
 	fs = get_fs();
-	set_fs(get_ds());
+	set_fs(KERNEL_DS);
 	trans->filp = filp_open(trans->device_file_name, O_RDWR , 0);
 	if (trans->filp == NULL || IS_ERR(trans->filp))
 	{
@@ -538,7 +538,7 @@ DCMI_STATUS dcmi_transport_open()
 	if (atomic_read(&dev->isTransOpen) != TRUE)
 	{
 		fs = get_fs();
-		set_fs(get_ds());
+		set_fs(KERNEL_DS);
 		dev->trans.filp = filp_open(dev->trans.device_file_name, O_RDWR|O_NONBLOCK , 0);
 		set_fs(fs);
 		if (/*dev->trans.filp == NULL ||*/ IS_ERR_OR_NULL(dev->trans.filp)) //not possible to have null here but..
@@ -577,7 +577,7 @@ DCMI_STATUS dcmi_transport_close()
 
 		/* close the file */
 		fs = get_fs();
-		set_fs(get_ds());
+		set_fs(KERNEL_DS);
 		filp_close(dev->trans.filp, NULL);
 		set_fs(fs);
 
