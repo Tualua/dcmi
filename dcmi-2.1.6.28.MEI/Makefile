@@ -220,9 +220,9 @@ dcmi-objs := $(CFILES:.c=.o)
 else
 default: 
 ifeq ($(KOBJ),$(KSRC))
-	make -C $(KSRC) SUBDIRS=$(shell pwd) modules
+	make -C $(KSRC) M=$(shell pwd) modules
 else
-	make -C $(KSRC) O=$(KOBJ) SUBDIRS=$(shell pwd) modules
+	make -C $(KSRC) O=$(KOBJ) M=$(shell pwd) modules
 endif
 endif
 
